@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipment Guides Page</title>
+  <link rel="stylesheet" href="/userManagement/css/style1.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin-top: -20px;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    .section1 {
+        
+      text-align: left;
+      line-height: 45px;
+      font-size: 25px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .section1:hover {
+      transform: scale(1.05);
+    }
+
+    h2 {
+      color: hsl(278, 68%, 11%);
+      font-size: 27px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="/">Cargo.</a></div>
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+          <li>
+            <a href="#" class="desktop-item">Products</a>
+            <input type="checkbox" id="showMega">
+            <div class="mega-box">
+              <div class="content">
+                <div class="row">
+                  <header>Consumer Goods</header>
+                  <ul class="mega-links">
+                    <li><a href="/clothings">Clothes</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Furnitures</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Industrial and Raw materials</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Industrial materials</a></li>
+                    <li><a href="#">Raw Materials</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Perishable Cargo</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Food and Beverages</a></li>
+                    <li><a href="#">Medications</a></li>
+                    <li><a href="#">Agricultural Products</a></li>
+                    <li><a href="#">Fragile Items</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="/customer/book-cargo">Book Cargo</a></li>
+          <li><a href="/shipment-guides">Shipment  guides</a></li>
+          <li>
+            <a href="" class="desktop-item">About Us</a>
+            <input type="checkbox" id="showDrop">
+            <ul class="drop-menu">
+              <li><a href="/about-us">About us</a></li>
+              <li><a href="/contact-us">Contact us</a></li>
+            </ul>
+          </li>
+          <% if (isAuthenticated) { %>
+            <li><a href="/track-cargo">Track & Trace</a></li>
+          <% } %>
+          <% if (isAuthenticated) { %>
+            <div class="user-actions">
+              <a href="/customer/logout" class="register-button">Logout</a>
+            </div>
+            <% } else { %>
+              <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+              <div class="user-actions">
+                <a href="/customer/login">Login</a>
+                <a href="/customer/register" class="register-button" style="color: hsl(203, 19%, 23%);   padding: 2px;
+                ">Register</a>
+              </div>
+            <% } %>
+        </ul>
+        <div class="dropdown_menu">
+          <% if (isAuthenticated) { %>
+            <li><a href="/customer-details">Profile</a></li>
+            <li><a href="/customer/change-password">Change Password</a></li>
+            <li><a href="/customer/logout" class="register-button">Logout</a></li>
+          <% } else { %>
+            <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+            <div class="user-actions">
+              <a href="/customer/login">Login</a>
+              <a href="/customer/register" class="register-button" style="color: hsl(203, 19%, 23%);   padding: 2px;
+              ">Register</a>
+            </div>
+          <% } %>
+        </div>
+        <div class="user" id="userDiv">
+          <% const filteredCustomers = customers.filter(customer => customer.username === loggedInUser); %>
+          <% if (filteredCustomers.length > 0) { %>
+              <% const customer = filteredCustomers[0]; %>
+              <% if (customer.images) { %>
+                  <img src="data:image/png;base64, <%= Buffer.from(customer.images).toString('base64') %>" alt="User Image">
+              <% } else { %>
+                <ion-icon name="people-outline"></ion-icon>
+              <% } %>
+          <% } else { %>
+            <ion-icon name="people-outline"></ion-icon>
+          <% } %>
+        </div>
+      </div>
+      <div class="toggle">
+        <ion-icon name="menu-outline";"></ion-icon>
+      </div>
+    </nav>
+  </header>
+    <div>
+        <section class="section1" onclick="toggleInfo(this, 'air')">
+            <img src="/images/slide4.jpg" alt="Air Cargo">
+            <h2>Air Cargo Delivery</h2>
+            <p>
+              Our air cargo delivery service ensures swift and efficient transportation of your goods through the skies. With state-of-the-art logistics and a global network, we guarantee timely deliveries to destinations worldwide.
+            </p>
+          </section>
+        
+          <section class="section1" onclick="toggleInfo(this, 'water')">
+            <img src="/images/slide2.jpg" alt="Water Cargo">
+            <h2>Water Cargo Delivery</h2>
+            <p>
+              Shipping by sea offers a cost-effective and reliable solution for transporting large quantities of cargo. Our water cargo delivery service provides efficient maritime logistics to connect your shipments across oceans.
+            </p>
+          </section>
+        
+          <section class="section1" onclick="toggleInfo(this, 'land')">
+            <img src="/images/slide3.jpg" alt="Land Cargo">
+            <h2>Land Cargo Delivery</h2>
+            <p>
+              Ground transportation is the backbone of logistics. Our land cargo delivery service ensures secure and timely shipments across road networks. From trucks to trains, we've got your land transportation needs covered.
+            </p>
+          </section>
+        
+          <section class="section1" onclick="toggleInfo(this, 'train')">
+            <img src="/images/Leonardo_Vision_XL_a_simple_illustration_of_a_train_cargo_ship_0.jpg" alt="Train Cargo">
+            <h2>Train Cargo Delivery</h2>
+            <p>
+              Rail transport is an eco-friendly and efficient way to move cargo. Our train cargo delivery service provides a sustainable option for land transportation. Experience reliability and sustainability with our train cargo services.
+            </p>
+          </section>
+    </div>
+    
+</body>
+<script>
+    function toggleInfo(element, type) {
+      const paragraphs = document.querySelectorAll('.show');
+      const tables = document.querySelectorAll('table');
+
+      // Close all open toggles
+      paragraphs.forEach(paragraph => paragraph.classList.remove('show'));
+      tables.forEach(table => table.remove());
+
+      // Toggle the visibility of the selected paragraph
+      const paragraph = element.querySelector('p');
+      paragraph.classList.toggle('show');
+
+      // If the table does not exist, create and append it
+      if (!element.querySelector('table')) {
+        let cargoDetails = '';
+
+        switch (type) {
+          case 'air':
+            cargoDetails = `
+              <table class="cargo-details">
+                <tr>
+                  <th>Shipping Time:</th>
+                  <td>1-3 days</td>
+                </tr>
+                <tr>
+                  <th>Destinations:</th>
+                  <td>Worldwide</td>
+                </tr>
+                <tr>
+                  <th>Service Type:</th>
+                  <td>Express</td>
+                </tr>
+                <tr>
+                  <th>Pricing:</th>
+                  <td>Contact us for a customized quote</td>
+                </tr>
+              </table>
+            `;
+            break;
+          case 'water':
+            cargoDetails = `
+              <table class="cargo-details">
+                <tr>
+                  <th>Shipping Time:</th>
+                  <td>5-10 days</td>
+                </tr>
+                <tr>
+                  <th>Destinations:</th>
+                  <td>Global Ports</td>
+                </tr>
+                <tr>
+                  <th>Service Type:</th>
+                  <td>Standard</td>
+                </tr>
+                <tr>
+                  <th>Pricing:</th>
+                  <td>Varies by destination and cargo volume</td>
+                </tr>
+              </table>
+            `;
+            break;
+          case 'land':
+            cargoDetails = `
+              <table class="cargo-details">
+                <tr>
+                  <th>Shipping Time:</th>
+                  <td>2-7 days</td>
+                </tr>
+                <tr>
+                  <th>Destinations:</th>
+                  <td>Domestic and Regional</td>
+                </tr>
+                <tr>
+                  <th>Service Type:</th>
+                  <td>Standard and Expedited</td>
+                </tr>
+                <tr>
+                  <th>Pricing:</th>
+                  <td>Based on distance and service type</td>
+                </tr>
+              </table>
+            `;
+            break;
+          case 'train':
+            cargoDetails = `
+              <table class="cargo-details">
+                <tr>
+                  <th>Shipping Time:</th>
+                  <td>3-5 days</td>
+                </tr>
+                <tr>
+                  <th>Destinations:</th>
+                  <td>Regional</td>
+                </tr>
+                <tr>
+                  <th>Service Type:</th>
+                  <td>Express</td>
+                </tr>
+                <tr>
+                  <th>Pricing:</th>
+                  <td>Competitive rates based on distance</td>
+                </tr>
+              </table>
+            `;
+            break;
+          default:
+            break;
+        }
+
+        // Create a div element to hold both paragraph and table
+        const contentDiv = document.createElement('div');
+        contentDiv.innerHTML = paragraph.innerHTML + cargoDetails;
+
+        // Replace the paragraph with the new content
+        element.replaceChild(contentDiv, paragraph);
+      }
+    }
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="/userManagement/script.js"></script>
+  <script src="/script.js"></script>
+</html>

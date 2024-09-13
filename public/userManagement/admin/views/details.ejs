@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details Page</title>
+    <link rel="stylesheet" type="text/css" href="/userManagement/admin/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon1">
+                            <div class="user1">
+                                <% const filteredCustomers = customers.filter(customer => customer.username === loggedInUser); %>
+                                <% if (filteredCustomers.length > 0) { %>
+                                    <% const customer = filteredCustomers[0]; %>
+                                    <% if (customer.images) { %>
+                                        <img src="data:image/png;base64, <%= Buffer.from(customer.images).toString('base64') %>" alt="User Image">
+                                    <% } else { %>
+                                      <ion-icon name="people-outline"></ion-icon>
+                                    <% } %>
+                                <% } else { %>
+                                  <ion-icon name="people-outline"></ion-icon>
+                                <% } %>
+                            </div>
+                        </span>
+                        <span class="title1">User</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">General</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/customer/change-password">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Change Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/logout">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign out</a></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline";"></ion-icon>
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h1>Customer Details</h1>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <% if (customers && customers.length > 0) { %>
+                                <ul>
+                                    <% customers.forEach(customer => { %>
+                                        <div class="customer">
+                                            <form action="/edituser" method="POST">
+                                                <div class="details">
+                                                    <li>
+                                                        <span>
+                                                            <label for="iam">I am: </label>
+                                                            <select name="iam" id="iam">
+                                                                <option value="Company" <%= customer.iam === 'Company' ? 'selected' : '' %>>A company</option>
+                                                                <option value="Individual" <%= customer.iam === 'Individual' ? 'selected' : '' %>>An individual</option>
+                                                            </select>
+                                                        </span>
+                                                    </li>                                                    
+                                                    <li>
+                                                        <span><label for="fullname">Fullname: </label><input type="text" name="fullname" id="fullname" value="<%= customer.fullname %>"></span>
+                                                    </li>
+                                                    <li>
+                                                        <span><label for="username">Username: </label><input type="text" name="username" id="username" value="<%= customer.username %>"></span>
+                                                    </li>
+                                                    <li>
+                                                        <span><label for="email">Email: </label><input type="email" name="email" id="email" value="<%= customer.email %>"></span>
+                                                    </li>
+                                                    <li>
+                                                        <span><label for="password">Password: </label><input type="password" name="password" id="password" value="<%= customer.password %>"></span>
+                                                    </li>
+                                                    <span><button type="submit" class="btn">Save Changes</button></span>
+                                                </div>
+                                            </form>
+                                            <form action="/uploadImage" method="POST" enctype="multipart/form-data">
+                                                <div class="image">
+                                                    <li>
+                                                        <span><label for="image">Upload Image: </label><input type="file" name="images" id="image"></span>
+                                                        <span><button type="submit" class="btn">Upload</button></span>
+                                                    </li>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    <% }) %>
+                                </ul>
+                            <% } else { %>
+                                <p>No customers found.</p>
+                            <% } %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="/userManagement/admin/js/main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/userManagement/admin/js/main.js"></script>
+
+</body>
+</html>

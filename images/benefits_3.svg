@@ -1,0 +1,38 @@
+<svg width="96" height="97" viewBox="0 0 96 97" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect x="7" y="25.5" width="81" height="56" fill="#BDC2CA" stroke="#252F3E" stroke-width="4"/>
+<path d="M26.5784 50.9204C24.3951 50.9204 22.5932 52.7223 22.5538 54.9451C22.5538 57.1284 24.3557 58.9304 26.5784 58.9698C28.7618 58.9698 30.5637 57.1678 30.6031 54.9451C30.6032 52.6829 28.8407 50.9204 26.5784 50.9204Z" fill="#D3D7DA"/>
+<path d="M26.5784 53.3492C25.7367 53.3492 25.0264 54.0595 25.0264 54.9012C25.0264 55.743 25.7367 56.4532 26.5784 56.4532C27.4202 56.4532 28.1305 55.743 28.1305 54.9012C28.1261 54.0639 27.4597 53.3975 26.5784 53.3492Z" fill="white"/>
+<rect x="25.1539" y="39.5" width="3.69231" height="3.69231" fill="#252F3E"/>
+<rect x="19.1411" y="42.7904" width="2.39379" height="3.69231" transform="rotate(-30 19.1411 42.7904)" fill="#252F3E"/>
+<rect width="2.39379" height="3.69231" transform="matrix(-0.866025 -0.5 -0.5 0.866025 34.6116 42.7904)" fill="#252F3E"/>
+<circle cx="27" cy="54.2693" r="12" fill="#252F3E"/>
+<circle r="1.84615" transform="matrix(1 0 0 -1 27 54.2692)" fill="#BDC2CA"/>
+<rect x="26.0769" y="47.8077" width="1.84615" height="5.53846" fill="#BDC2CA"/>
+<rect x="26.0769" y="53.3462" width="9.23077" height="1.84615" fill="#BDC2CA"/>
+<mask id="path-11-inside-1" fill="white">
+<path d="M0 79.5H96V93.5H0V79.5Z"/>
+</mask>
+<path d="M0 79.5V75.5H-4V79.5H0ZM96 79.5H100V75.5H96V79.5ZM96 93.5V97.5H100V93.5H96ZM0 93.5H-4V97.5H0V93.5ZM0 83.5H96V75.5H0V83.5ZM92 79.5V93.5H100V79.5H92ZM96 89.5H0V97.5H96V89.5ZM4 93.5V79.5H-4V93.5H4Z" fill="#252F3E" mask="url(#path-11-inside-1)"/>
+<path d="M44 16L60 0.5H96V64.5H44V16Z" fill="#EE6823"/>
+<rect x="53" y="9.5" width="34" height="46" stroke="white" stroke-width="2"/>
+<path d="M60 16.5L44 16.5L60 0.5L60 16.5Z" fill="#252F3E"/>
+<line x1="69" y1="8.5" x2="69" y2="27.5" stroke="white" stroke-width="2"/>
+<line x1="69" y1="34.5" x2="69" y2="56.5" stroke="white" stroke-width="2"/>
+<line x1="52" y1="26.5" x2="88" y2="26.5" stroke="white" stroke-width="2"/>
+<line x1="52" y1="33.5" x2="88" y2="33.5" stroke="white" stroke-width="2"/>
+<line x1="52" y1="40.5" x2="70" y2="40.5" stroke="white" stroke-width="2"/>
+<line x1="73" y1="15.5" x2="83" y2="15.5" stroke="white" stroke-width="2"/>
+<line x1="73" y1="39.5" x2="83" y2="39.5" stroke="white" stroke-width="2"/>
+<line x1="73" y1="20.5" x2="83" y2="20.5" stroke="white" stroke-width="2"/>
+<line x1="73" y1="44.5" x2="83" y2="44.5" stroke="white" stroke-width="2"/>
+<line x1="73" y1="49.5" x2="83" y2="49.5" stroke="white" stroke-width="2"/>
+<line x1="52" y1="48.5" x2="68" y2="48.5" stroke="white" stroke-width="2"/>
+<line x1="52" y1="55.5" x2="70" y2="55.5" stroke="white" stroke-width="2"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="96" height="96" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg>

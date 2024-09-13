@@ -1,0 +1,73 @@
+<!-- customer/login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Page</title>
+    <link rel="stylesheet" type="text/css" href="/userManagement/customer/style.css">
+    <style>
+        .btn1{
+        width: 50%;
+        margin-left: 150px;
+        margin-top: 150px;
+        grid-column: 2 span;
+        font-size: 18px;
+        height: 50px;
+        color: var(--White);
+        border-radius: 6px;
+        background: var(--Very-dark-violet);
+        cursor: pointer;
+        transition: .3s;
+        }
+        .my-textarea {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+    <div class="right_sec">
+    </div>
+    <div class="left_sec">
+        <div class="login-container">
+        <div class="form-box login">
+            <h2>Contact Us</h2>
+            <p style="text-align: center;">We'd love to hear from you!</p>
+            <form action="/contact-us" method="POST">
+                <div class="input-box">
+                    <input type="text" id="name" name="name" required autocomplete="on">
+                    <label for="name">Name</label>
+                </div>
+                <div class="grid">
+                    <div class="input-box">
+                        <input type="text" id="email" name="email" required autocomplete="on">
+                        <label for="password">Email</label>
+                    </div>
+                    <div class="input-box" style="margin-left: 10px;">
+                        <input type="tel" id="Phone" name="Phone" required autocomplete="on">
+                        <label for="fa-phone">Phone number</label>
+                    </div>
+                
+                </div>
+                <div class="input-box">
+                    <textarea class="my-textarea"  id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn1">Send Message</button>
+            </form>
+        </div>
+            
+    </div>
+    </div>
+    
+    
+</body>
+</html>
+

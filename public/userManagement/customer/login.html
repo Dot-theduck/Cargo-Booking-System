@@ -1,0 +1,45 @@
+<!-- customer/login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login Page</title>
+    <link rel="stylesheet" type="text/css" href="/userManagement/customer/style.css">
+</head>
+<body>
+    <div class="grid">
+        <div class="right_sec">
+        </div>
+        <div class="left_sec">
+            <div class="login-container">
+            <div class="form-box login">
+                <h2>Customer Login</h2>
+                <form action="/customer/login" method="POST">
+                    <div class="input-box">
+                        <input type="text" id="username" name="username" required autocomplete="off">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password" name="password" required autocomplete="off">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="/customer/change_password">Forgot password</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Not a member yet? <a href="/customer/register" class="register-link">Register here</p>
+                    </div>
+                </form>
+            </div>
+                
+        </div>
+    </div>
+    
+    
+</body>
+</html>
+

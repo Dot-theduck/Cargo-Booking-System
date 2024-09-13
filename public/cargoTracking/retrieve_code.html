@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track and Trace</title>
+    <style>
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unique code retrieval</h1>
+    <form action="/retrieve-code" method="POST">
+        <button>Click here to retrieve your unique tracking code</button>
+    </form>
+
+    <div class="popup" id="popup">
+        <form action="/track-cargo" method="POST">
+            <label for="trackingCode">Enter Your Unique Tracking Code:</label><br>
+            <input type="text" id="trackingCode" name="code"><br><br>
+            <button type="submit">Track Cargo</button>
+            <button onclick="togglePopup()">Close</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to toggle the popup
+        function togglePopup() {
+            var popup = document.getElementById('popup');
+            if (popup.style.display === 'none') {
+                popup.style.display = 'block';
+            } else {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

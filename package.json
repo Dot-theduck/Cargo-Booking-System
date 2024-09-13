@@ -1,0 +1,30 @@
+{
+  "name": "cargobookingsystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@img/sharp-linux-x64": "^0.33.1",
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "moment": "^2.30.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.8",
+    "nodemon": "^3.1.4",
+    "passport": "^0.7.0",
+    "sharp": "^0.33.2",
+    "sqlite3": "^5.1.7-rc.0",
+    "unirest": "^0.6.0"
+  }
+}

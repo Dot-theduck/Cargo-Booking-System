@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Cargo Page</title>
+    <link rel="stylesheet" type="text/css" href="/cargoTracking/style.css">
+</head>
+<body>
+    <div class="tracking">
+        <form action="/track-cargo" method="POST">
+            <div>
+                <label for="trackingCode">Enter Your Unique Tracking Code:</label><br>
+            </div>
+            <div>
+                <input type="text" id="trackingCode" name="code"><br><br>
+            </div>
+            <div>
+                <button type="submit">Track Cargo</button>
+            </div>
+            <div>
+                <label><a href="/">Click here to return to home page</a></label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

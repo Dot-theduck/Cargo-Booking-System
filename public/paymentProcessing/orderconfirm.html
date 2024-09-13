@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Summary</title>
+  <link rel="stylesheet" href="/paymentProcessing/orderconfirm.css">
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <img src="/images/cargo2.jpg">
+    </div>
+    <div class="text-content">
+      <h2 class="title">
+        Order Summary
+      </h2>
+      <p class="subtitle">
+        We want to express our gratitude for selecting our services. Your payment is crucial to ensure the timely processing and delivery of your cargo. If you need assistance, our support team is here to help!
+      </p>
+      <div class="plan-box">
+        <div class="plan-box-left">
+          <div>
+            <div id="amountDisplay"><h5>Annual Plan</h5></div>
+            <!-- Hidden input to store the generated amount -->
+            <input type="hidden" id="hiddenAmount" name="amount">
+          </div>
+        </div>
+        <a id="generateButton">Change</a>
+      </div>
+      <!--a href="/payment" class="proceed-btn" id="proceedButton">Proceed to Payment</a-->
+      <button type="submit" class="proceed-btn" id="proceedButton">Proceed to Payment</button>
+      <a href="/customer/book-cargo" class="cancel-btn">Cancel Order</a>
+    </div>
+  </div>
+
+  <script>
+    // Function to generate and display a random amount
+    function generateRandomAmount() {
+        const minAmount = 300; // Minimum amount
+        const maxAmount = 40000; // Maximum amount
+
+        // Generate a random amount within the specified range
+        const randomAmount = Math.floor(Math.random() * (maxAmount - minAmount + 1)) + minAmount;
+
+        // Display the random amount on the webpage
+        document.getElementById("amountDisplay").textContent = "ksh" + randomAmount.toFixed(2);
+
+        // Store the generated amount in the hidden input field
+        document.getElementById("hiddenAmount").value = randomAmount.toFixed(2);
+    }
+
+    // Add an event listener to the "Change" button
+    document.getElementById("generateButton").addEventListener("click", generateRandomAmount);
+
+    // Add an event listener to the "Proceed to Payment" button
+    document.getElementById("proceedButton").addEventListener("click", function() {
+        // Retrieve the stored amount from the hidden input field
+        const storedAmount = document.getElementById("hiddenAmount").value;
+
+        // Redirect to the payment gateway page with the amount in the query parameter
+        window.location.href = `/payment?amount=${storedAmount}`;
+    });
+
+    // Initial display when the page loads
+    generateRandomAmount();
+  </script>
+</body>
+</html>

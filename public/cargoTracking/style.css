@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/userManagement/admin/imgs/customer.avif");
+    background-size: cover;
+    background-position: relative;
+    background-repeat: no-repeat;
+}
+
+.tracking {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+
+}
+
+.tracking form {
+    width: 500px;
+    position: relative;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border: 2px solid rgba(255, 255, 255, .2);
+    padding: 20px;
+}
+
+.tracking form label {
+    position: relative;
+    top: 10px;
+    color: #fff;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.tracking form input {
+    position: relative;
+    justify-content: center;
+    top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    height: 55px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.tracking form button {
+    position: absolute;
+    justify-content: center;
+    bottom: 50px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    left: 75px;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background:  hsl(0, 0%, 100%);
+    transition: .3s;
+}
+    
+.tracking form button:hover {
+    background:  hsl(278, 99%, 43%);
+    color: #fff;
+}
+
+.tracking form label a {
+    position: relative;
+    top: 190px;
+    color: #fff;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.tracking form label a:hover {
+    color:hsl(278, 99%, 43%);
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothings page</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/userManagement/css/style1.css">
+    <link rel="stylesheet" href="/userManagement/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'>
+</head>
+<style>
+  :root{
+  --Very-dark-violet: hsl(278, 68%, 11%);
+  --backcolor: hsl(203, 19%, 23%);
+;
+}
+.clothing {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  text-align: center;
+  top: 300px;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font-size: 3rem;
+  font-style: italic;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.introductions a{
+  font-size: 3rem;
+}
+.introductions p{
+  font-size: 25px;
+  line-height: 1.8;
+  
+}
+
+/*table*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--backcolor);
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.services{
+  margin: 0 0 20px;
+  text-decoration: none;
+  line-height: 1.8;
+  text-align: left;
+}
+.services h3{
+  color: var(--Very-dark-violet);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+.services p{
+  font-size: 25px;
+  padding: 2% 0;
+}
+
+.express{
+  margin-top: 100px;
+}
+</style>
+<body>
+  <header>
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="/">Cargo.</a></div>
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+          <li>
+            <a href="#" class="desktop-item">Products</a>
+            <input type="checkbox" id="showMega">
+            <div class="mega-box">
+              <div class="content">
+                <div class="row">
+                  <header>Consumer Goods</header>
+                  <ul class="mega-links">
+                    <li><a href="/clothings">Clothes</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Furnitures</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Industrial and Raw materials</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Industrial materials</a></li>
+                    <li><a href="#">Raw Materials</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Perishable Cargo</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Food and Beverages</a></li>
+                    <li><a href="#">Medications</a></li>
+                    <li><a href="#">Agricultural Products</a></li>
+                    <li><a href="#">Fragile Items</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="/customer/book-cargo">Book Cargo</a></li>
+          <li><a href="/shipment-guides">Shipment  guides</a></li>
+          <li>
+            <a href="" class="desktop-item">About Us</a>
+            <input type="checkbox" id="showDrop">
+            <ul class="drop-menu">
+              <li><a href="/about-us">About us</a></li>
+              <li><a href="/contact-us">Contact us</a></li>
+            </ul>
+          </li>
+          <% if (isAuthenticated) { %>
+            <li><a href="/track-cargo">Track & Trace</a></li>
+          <% } %>
+          <% if (isAuthenticated) { %>
+            <div class="user-actions">
+              <a href="/customer/logout" class="register-button">Logout</a>
+            </div>
+            <% } else { %>
+              <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+              <div class="user-actions">
+                <a href="/customer/login">Login</a>
+                <a href="/customer/register" class="register-button" style="color: hsl(203, 19%, 23%);   padding: 2px;
+                ">Register</a>
+              </div>
+            <% } %>
+        </ul>
+        <div class="dropdown_menu">
+          <% if (isAuthenticated) { %>
+            <li><a href="/customer-details">Profile</a></li>
+            <li><a href="/customer/change-password">Change Password</a></li>
+            <li><a href="/customer/logout" class="register-button">Logout</a></li>
+          <% } else { %>
+            <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+            <div class="user-actions">
+              <a href="/customer/login">Login</a>
+              <a href="/customer/register" class="register-button" style="color: hsl(203, 19%, 23%);   padding: 2px;
+              ">Register</a>
+            </div>
+          <% } %>
+        </div>
+        <div class="user" id="userDiv">
+          <% const filteredCustomers = customers.filter(customer => customer.username === loggedInUser); %>
+          <% if (filteredCustomers.length > 0) { %>
+              <% const customer = filteredCustomers[0]; %>
+              <% if (customer.images) { %>
+                  <img src="data:image/png;base64, <%= Buffer.from(customer.images).toString('base64') %>" alt="User Image">
+              <% } else { %>
+                <ion-icon name="people-outline"></ion-icon>
+              <% } %>
+          <% } else { %>
+            <ion-icon name="people-outline"></ion-icon>
+          <% } %>
+        </div>
+      </div>
+      <div class="toggle">
+        <ion-icon name="menu-outline";"></ion-icon>
+      </div>
+    </nav>
+  </header>
+  <div class="clothing">
+    <img class="image" src="/images/clothings.jpg" alt="Image">
+    <div class="content">
+      <h1 class="title">Clothings</h1>
+    </div>
+  </div>
+  <main>
+    <div class="introductions">
+      <a>Introductions</a>
+    <p>
+      Welcome to our comprehensive clothing section, where you can easily book shipments for various apparel products. We offer a diverse range of clothing options, from everyday wear to specialized garments, ensuring your cargo needs are met with efficiency and care. Whether you're shipping delicate fabrics or bulk orders, our reliable transportation services guarantee secure and timely delivery of your clothing cargo.
+    </p>
+    <div class="services">
+      <div class="Standard">
+        <h3>Standard service</h3>
+        <p>The 'Standard' service offers a more budget-friendly option for cargo transportation, ensuring reliability and cost-effectiveness. However, it may have longer transit times</p>
+          <table>
+            <tr>
+              <th>Cargo Weight</th>
+              <th>Type of Cargo Transport</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>1  - 250 kg</td>
+              <td>Air,water</td>
+              <td>ksh500</td>
+            </tr>
+            <tr>
+              <td>251 -1200 kg</td>
+              <td>Air,water</td>
+              <td>ksh2000</td>
+            </tr>
+            <tr>
+              <td>1201 - 2400 kg</td>
+              <td>Air,water</td>
+              <td>ksh800</td>
+            </tr>
+            <tr>
+              <td>2401 - 12000 kg</td>
+              <td>Air,water</td>
+              <td>ksh18000</td>
+            </tr>
+            <tr>
+              <td>1 - 250 kg</td>
+              <td>Train,Land</td>
+              <td>ksh400</td>
+            </tr>
+            <tr>
+              <td>251 - 1200 kg</td>
+              <td>Train,Land</td>
+              <td>ksh1800</td>
+            </tr>
+            <tr>
+              <td>1201 - 2400 kg</td>
+              <td>Train,Land</td>
+              <td>ksh3500</td>
+            </tr>
+            <tr>
+              <td>2401 - 12000 kg</td>
+              <td>Train,Land</td>
+              <td>ksh15000</td>
+            </tr>
+          </table>
+      </div>
+      <div class="express">
+        <h3>express service</h3>
+        <p>Express service is the epitome of speed and efficiency, designed to ensure your cargo reaches its destination as quickly as possible. It's ideal for time-critical shipments where urgency is paramount</p>
+        <table>
+          <tr>
+            <th>Cargo Weight</th>
+            <th>Type of Cargo Transport</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>1 - 250 kg</td>
+            <td>Air,Water</td>
+            <td>ksh700</td>
+          </tr>
+          <tr>
+            <td>251 - 1200 kg</td>
+            <td>Air,Water</td>
+            <td>ksh2200</td>
+          </tr>
+          <tr>
+            <td>1201 - 2400 kg</td>
+            <td>Air,Water</td>
+            <td>ksh4000</td>
+          </tr>
+          <tr>
+            <td>2401 - 12000 kg</td>
+            <td>Air,Water</td>
+            <td>ksh20000</td>
+          </tr>
+          <tr>
+            <td>1 - 250 kg</td>
+            <td>Train,Land</td>
+            <td>ksh500</td>
+          </tr>
+          <tr>
+            <td>251 - 1200 kg</td>
+            <td>Train,Land</td>
+            <td>ksh1900</td>
+          </tr>
+          <tr>
+            <td>1201 - 2400 kg</td>
+            <td>Train,Land</td>
+            <td>ksh3600</td>
+          </tr>
+          <tr>
+            <td>2401 - 12000 kg</td>
+            <td>Train,Land</td>
+            <td>ksh1800</td>
+          </tr>
+        </table>
+      </div>
+      <p style="padding: 5% 0;"> Choosing between Express and Standard services allows you to strike a balance between speed and affordability, catering to the specific needs of your cargo and delivery requirements.</p>
+    </div>
+  </main>
+ 
+  
+    
+      <!-- Footer Section -->
+      <footer class="footer-distributed">
+
+        <div class="footer-left">
+  
+          <h3>Cargo<span>.</span></h3>
+  
+          <p class="footer-links">
+            <a href="/" class="link-1">Home</a>
+            
+            <a href="/clothings">Products</a>
+          
+            <a href="/track-cargo">Track & Trace</a>
+          
+            <a href="/about-us">About us</a>
+            
+            <a href="/FAQ">Faq</a>
+            
+            <a href="/contact-us">Contact</a>
+          </p>
+        </div>
+  
+        <div class="footer-center">
+  
+          <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>20157 kabarak</span> Rafiki, Nakuru</p>
+          </div>
+  
+          <div>
+            <i class="fa fa-phone"></i>
+            <p>+2547 123 456 78</p>
+                  </div>
+                  <div>
+                      <i class="fa fa-phone"></i>
+                      <p>+2547 038 617 26</p>
+          </div>
+  
+          <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:ekchepkonga@kabarak.ac.ke">ekchepkonga@kabarak.ac.ke</a></p>
+          </div>
+                  <div>
+                      <i class="fa fa-envelope"></i>
+                      <p><a href="mailto:cadison@kabarak.ac.ke">cadison@kabarak.ac.ke</a></p>
+                  </div>
+  
+        </div>
+  
+        <div class="footer-right">
+  
+          <p class="footer-company-about">
+            <span>About the company</span>
+            "Cargo Booking, a leading logistics and transportation company, provides efficient and reliable solutions for booking and shipping your cargo to its destination, ensuring timely and secure deliveries nationwide."
+          </p>
+  
+          <div class="footer-icons">
+  
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+  
+          </div>
+  
+        </div>
+  
+      </footer>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="/userManagement/script.js"></script>
+<script src="/script.js"></script>
+</html>

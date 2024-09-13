@@ -1,0 +1,345 @@
+<DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Home page</title>
+      
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="/userManagement/css/style1.css">
+      <link rel="stylesheet" href="/userManagement/css/footer.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'>
+      
+  </head>
+  <body>
+      <header>
+        <nav>
+          <div class="wrapper">
+            <div class="logo"><a href="/">Cargo.</a></div>
+            <ul class="nav-links">
+              <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+              <li>
+                <a href="#" class="desktop-item">Products</a>
+                <input type="checkbox" id="showMega">
+                <div class="mega-box">
+                  <div class="content">
+                    <div class="row">
+                      <header>Consumer Goods</header>
+                      <ul class="mega-links">
+                        <li><a href="/clothings">Clothes</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Furnitures</a></li>
+                      </ul>
+                    </div>
+                    <div class="row">
+                      <header>Industrial and Raw materials</header>
+                      <ul class="mega-links">
+                        <li><a href="#">Industrial materials</a></li>
+                        <li><a href="#">Raw Materials</a></li>
+                      </ul>
+                    </div>
+                    <div class="row">
+                      <header>Perishable Cargo</header>
+                      <ul class="mega-links">
+                        <li><a href="#">Food and Beverages</a></li>
+                        <li><a href="#">Medications</a></li>
+                        <li><a href="#">Agricultural Products</a></li>
+                        <li><a href="#">Fragile Items</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li><a href="/customer/book-cargo">Book Cargo</a></li>
+              <li><a href="/shipment-guides">Shipment  guides</a></li>
+              <li>
+                <a href="" class="desktop-item">About Us</a>
+                <input type="checkbox" id="showDrop">
+                <ul class="drop-menu">
+                  <li><a href="/about-us">About us</a></li>
+                  <li><a href="/contact-us">Contact us</a></li>
+                </ul>
+              </li>
+              <% if (isAuthenticated) { %>
+                <li><a href="/track-cargo">Track & Trace</a></li>
+              <% } %>
+              <% if (isAuthenticated) { %>
+                <div class="user-actions">
+                  <a href="/customer/logout" class="register-button">Logout</a>
+                </div>
+              <% } else { %>
+                <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+                <div class="user-actions">
+                  <a href="/customer/login">Login</a>
+                  <a href="/customer/register" class="register-button" style="color: hsl(203, 19%, 23%);   padding: 2px;
+                  ">Register</a>
+                </div>
+              <% } %>
+            </ul>
+            <div class="dropdown_menu">
+              <% if (isAuthenticated) { %>
+                <li><a href="/customer-details">Profile</a></li>
+                <li><a href="/customer/change-password">Change Password</a></li>
+                <li><a href="/customer/logout" class="register-button">Logout</a></li>
+              <% } else { %>
+                <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+                <div class="user-actions">
+                  <a href="/customer/login">Login</a>
+                  <a href="/customer/register" class="register-button" style="color: hsl(203, 19%, 23%);   padding: 2px;
+                  ">Register</a>
+                </div>
+              <% } %>
+            </div>
+            <div class="user" id="userDiv">
+              <% const filteredCustomers = customers.filter(customer => customer.username === loggedInUser); %>
+              <% if (filteredCustomers.length > 0) { %>
+                  <% const customer = filteredCustomers[0]; %>
+                  <% if (customer.images) { %>
+                      <img src="data:image/png;base64, <%= Buffer.from(customer.images).toString('base64') %>" alt="User Image">
+                  <% } else { %>
+                    <ion-icon name="people-outline"></ion-icon>
+                  <% } %>
+              <% } else { %>
+                <ion-icon name="people-outline"></ion-icon>
+              <% } %>
+            </div>
+          </div>
+          <div class="toggle">
+            <ion-icon name="menu-outline";"></ion-icon>
+          </div>
+        </nav>
+      </header>
+  
+      <!-- Main Content Section -->
+      <main>
+          <div class="container">
+              <div class="statement">
+                  <p>"We provide nationwide cargo booking services, ensuring your shipments can move smoothly throughout the entire country."</p-->
+              </div>
+              <div class="statement_img">
+                    <img src="/images/export-services-cargo.jpg" alt="into" srcset="">
+              </div>
+          </div>
+          <section class="hero">
+              <div class="grid-container">
+                  <div class="grid-item">
+                      <img src="/images/images.jpeg" alt="Image 1">
+                      <p>Entry into a worldwide <br>marketplace.</p>
+                  </div>
+                  <div class="grid-item">
+                      <img src="/images/istockphoto-183247137-612x612.jpg" alt="Image 2">
+                      <p>Sending multiple stop rate<br> requests within a single inquiry.</p>
+                  </div>
+                  <div class="grid-item">
+                      <img src="/images/transporte-carreteras.jpg" alt="Image 3">
+                      <p>Immediate reservation with<br> automatic allocation</p>
+                  </div>
+                  <div class="grid-item">
+                      <img src="/images/benefits_4.svg" alt="Image 4">
+                      <p>Streamlined user interaction <br>and application.</p>
+                  </div>
+              </div>
+              
+          </section>
+      </main><br><br><br>
+  
+      <div class="main_content">
+      <!-- slideshow Section -->
+          <div class="slideshow">
+              <div class="slideshow-inner">
+                  <div class="slides">
+                    <div class="slide is-active ">
+                      <div class="slide-content">
+                        <div class="caption">
+                          <div class="title">Water Cargo Services</div>
+                          <div class="text">
+                            <p>Explore seamless cargo booking services, connecting you to a world of efficient logistics and transportation solutions.</p>
+                          </div> 
+                          <a href="/shipment-guides" class="btn">
+                            <span class="btn-inner">Learn More</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="image-container" > 
+                        <img src="/images/slide4.jpg" alt="" class="image" />
+                      </div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content">
+                        <div class="caption">
+                          <div class="title">Aerial Cargo Services</div>
+                          <div class="text">
+                            <p>Elevate your shipments with our aerial cargo services, ensuring swift and secure deliveries through the skies.</p>
+                          </div> 
+                          <a href="/shipment-guides" class="btn">
+                            <span class="btn-inner">Learn More</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="image-container">
+                        <img src="/images/slide2.jpg" alt="" class="image" />
+                      </div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content">
+                        <div class="caption">
+                          <div class="title">Land Cargo Services</div>
+                          <div class="text">
+                            <p>Grounded in reliability, our land cargo services offer efficient transportation for your goods across vast landscapes.</p>
+                          </div> 
+                          <a href="/shipment-guides" class="btn">
+                            <span class="btn-inner">Learn More</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="image-container">
+                        <img src="/images/slide3.jpg" alt="" class="image" />
+                      </div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content">
+                        <div class="caption">
+                          <div class="title">Train Cargo Services</div>
+                          <div class="text">
+                            <p>Experience the power of rail transport with our train cargo services, delivering goods across the tracks with precision and speed.</p>
+                          </div> 
+                          <a href="/shipment-guides" class="btn">
+                            <span class="btn-inner">Learn More</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="image-container"> 
+                        <img src="/images/Leonardo_Vision_XL_a_simple_illustration_of_a_train_cargo_ship_0.jpg" alt="" class="image" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pagination">
+                    <div class="item is-active"> 
+                      <span class="icon">1</span>
+                    </div>
+                    <div class="item">
+                      <span class="icon">2</span>
+                    </div>
+                    <div class="item">
+                      <span class="icon">3</span>
+                    </div>
+                    <div class="item">
+                      <span class="icon">4</span>
+                    </div>
+                  </div>
+                  <div class="arrows">
+                    <div class="arrow prev">
+                      <span class="svg svg-arrow-left">
+                        <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
+                        <span class="alt sr-only"></span>
+                      </span>
+                    </div>
+                    <div class="arrow next">
+                      <span class="svg svg-arrow-right">
+                        <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
+                        <span class="alt sr-only"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  
+      <div class="join">
+        <div class="join_left">
+          <h4>Join over 10,000 bookers today</h4>
+          <p>"Sail the Seas of Efficiency: Your Cargo, Our Commitment!"</p>
+        </div>
+        <div class="join_right">
+          <% if (isAuthenticated) { %>
+            <a href="/customer/book-cargo" class="register-btn">Book Your Cargo for transportation</a>
+          <% } else { %>
+            <a href="/customer/register" class="register-btn">Register to book cargo</a>
+          <% } %>
+          <div class="extras">
+            <p>want to learn more? <a href="/FAQ">Click Here</a></p>
+          </div>
+          
+        </div>
+      </div>
+      <!-- Footer Section -->
+      <footer class="footer-distributed">
+  
+        <div class="footer-left">
+  
+          <h3 >Cargo<span>.</span></h3>
+  
+          <p class="footer-links">
+            <a href="/">Home</a>
+            
+            <a href="/clothings">Products</a>
+          
+            <a href="/track-cargo">Track & Trace</a>
+          
+            <a href="/about-us">About us</a>
+            
+            <a href="/FAQ">Faq</a>
+            
+            <a href="/contact-us">Contact</a>
+          </p>
+        </div>
+  
+        <div class="footer-center">
+  
+          <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>20157 kabarak</span> Rafiki, Nakuru</p>
+          </div>
+  
+          <div>
+            <i class="fa fa-phone"></i>
+            <p>+2547 123 456 78</p>
+                  </div>
+                  <div>
+                      <i class="fa fa-phone"></i>
+                      <p>+2547 038 617 26</p>
+          </div>
+  
+          <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">ekchepkonga@kabarak.ac.ke</a></p>
+          </div>
+                  <div>
+                      <i class="fa fa-envelope"></i>
+                      <p><a href="mailto:suport@company.com">cadison@kabarak.ac.ke</a></p>
+                  </div>
+  
+        </div>
+  
+        <div class="footer-right">
+  
+          <p class="footer-company-about">
+            <span>About the company</span>
+            "Cargo Booking, a leading logistics and transportation company, provides efficient and reliable solutions for booking and shipping your cargo to its destination, ensuring timely and secure deliveries nationwide."
+          </p>
+  
+          <div class="footer-icons">
+  
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+  
+          </div>
+  
+        </div>
+  
+      </footer>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="/userManagement/script.js"></script>
+  <script src="/userManagement/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+</body>
+</html>
+  
